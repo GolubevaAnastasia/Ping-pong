@@ -1,0 +1,8 @@
+class Ball(GameSprite):
+    def update(self):
+        self.rect.x+=self.speed
+        global lost
+        if self.rect.x>500:
+            self.rect.y=randint(80, 500-80)
+            self.rect.x=0
+            lost=lost+1
