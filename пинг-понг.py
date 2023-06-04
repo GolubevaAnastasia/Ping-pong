@@ -31,8 +31,8 @@ class Player(GameSprite):
 window=display.set_mode((700, 500)) 
 display.set_caption('pygame window')
 ball=GameSprite('ball.png', 150, 20, 0, 65, 65)
-sprite1=Player("rac.png", 5, 40, 15, 20, 100)
-sprite2=Player("rac.png", 500, 150, 60, 20, 100)
+sprite1=Player("rac.png", 600, 350, 7, 90, 100)
+sprite2=Player("rac.png", 5, 40, 7, 90, 100)
 clock=time.Clock()
 FPS=60
 game=True
@@ -41,8 +41,8 @@ speed_x=3
 speed_y=3
 font.init()
 font=font.Font(None, 66)
-lose1=font.render('Проиграл первый игрок', True, (0, 0, 0))
-lose2=font.render('Проиграл второй игрок', True, (0, 0, 0))
+win1=font.render('Выиграл первый игрок', True, (0, 0, 0))
+win2=font.render('Выиграл второй игрок', True, (0, 0, 0))
 while game:
     for e in event.get():
         if e.type==QUIT:
@@ -54,19 +54,19 @@ while game:
         sprite2.reset()
         sprite1.update_r()
         sprite2.update_l()
-        ball.rect.x*=speed_x
-        ball.rect.y*=speed_y
-        
-        if ball.rect.y > 500 or ball.rect.y<0:
+        ball.rect.x+=speed_x
+        ball.rect.y+=speed_y
+
+        if ball.rect.y > 450 or ball.rect.y<0:
             speed_y*=-1
         if sprite.collide_rect(sprite1, ball) or sprite.collide_rect(sprite2, ball):
             speed_x*=-1
         if ball.rect.x<0:
             finish=True
-            win.blit(lose1, (100, 50))
-        if ball.rect.x>1000:
+            window.blit(win2, (100, 50))
+        if ball.rect.x>600:
             finish=True
-            window.blit(lose2, (100, 50))
+            window.blit(win1, (100, 50))
 
         display.update()
         clock.tick(60)
