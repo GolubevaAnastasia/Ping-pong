@@ -48,7 +48,7 @@ while game:
         if e.type==QUIT:
             game=False
     if not finish:
-        window.fill((255, 255, 255))
+        window.fill((124, 205, 124))
         ball.reset()
         sprite1.reset()
         sprite2.reset()
