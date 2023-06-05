@@ -41,8 +41,8 @@ speed_x=3
 speed_y=3
 font.init()
 font=font.Font(None, 66)
-win1=font.render('Выиграл первый игрок', True, (0, 0, 0))
-win2=font.render('Выиграл второй игрок', True, (0, 0, 0))
+win1=font.render('Выиграл первый игрок', True, (255, 215, 0))
+win2=font.render('Выиграл второй игрок', True, (255, 215, 0))
 while game:
     for e in event.get():
         if e.type==QUIT:
